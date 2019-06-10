@@ -17,6 +17,19 @@ def about():
   # The "list_of_numbers=[1, 2, 3]"" was used initially after page_title="About" to see a for loop working. Just a test that it works, no other meaning
   #list_of_numbers=[1, 2, 3])
 
+@app.route("/about/<member_name>")
+def about_member(member_name):
+  member = {}
+
+  with open("data/company.json", "r") as json_data:
+    data = json.load(json_data)
+    for obj in data:
+      if obj["url"] == member_name:
+        member = obj
+
+  return render_template("member.html", member=member)
+
+
 @app.route("/contact")
 def contact():
   return render_template("contact.html", page_title="Contact")
