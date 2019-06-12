@@ -46,5 +46,7 @@ def careers():
 if __name__ == "__main__":
 
   # in cloud 9 i would add the following for the flask app to work:
-  app.run(host=os.environ.get("IP"),port=int(os.environ.get("PORT")),debug=True)
+  # app.run(host=os.environ.get("IP"),port=int(os.environ.get("PORT")),debug=True)
   # app.run(debug=True)
+
+  app.run(host=os.getenv('IP'), port=int(os.getenv('PORT')), debug=True)
