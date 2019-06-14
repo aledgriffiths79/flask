@@ -49,10 +49,9 @@ if __name__ == "__main__":
   # app.run(host=os.environ.get("IP"),port=int(os.environ.get("PORT")),debug=True)
   # below syntax is for opening project locally not production (heroku)
   # app.run(debug=True) 
-
+  # The following syntax could work but never tried : app.run(host=os.environ.get('IP', '0.0.0.0'), port=int(os.environ.get('PORT', '8080')), debug=True)
   #  app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', '8080')), debug=True)
-
-  # app.run(host=os.environ.get('IP', '0.0.0.0'), port=int(os.environ.get('PORT', '8080')), debug=True)
-  app.run(host=os.getenv('IP'), port=int(os.getenv('PORT')), debug=True) 
+  # The following code works for production (heroku)
+  app.run(host=os.getenv('IP'), port=int(os.getenv('PORT'))) 
 
 
